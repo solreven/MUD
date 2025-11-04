@@ -17,5 +17,16 @@ public class RoomTests
         Assert.Equal("Tavern", name);
         Assert.Equal("A cozy tavern filled with adventurers.", description);
     }
+    [Fact]
+
+    public void Room_CanHaveExits()
+    {
+        var tavern = new Room("Tavern", "A cozy tavern filled with adventurers.");
+        var riverbank = new Room("Riverbank", "The river flows here.");
+
+        tavern.AddExit("north", riverbank);
+
+        Assert.Equal(riverbank, tavern.GetExit("north"));
+    }
 
 }
